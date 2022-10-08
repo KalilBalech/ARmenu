@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const spawn = require('child_process').spawn
 
 const app = express()
-app.use(cors())
+app.use(cors({origin: "*"}))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
