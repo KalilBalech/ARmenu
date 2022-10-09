@@ -21,7 +21,7 @@ app.post('/order', (req, res) => {
   })
   res.send('A rota post deu certo!')
 })
-
-app.listen(6969, ()=>{
+// essa process.env.PORT é definida pelo render
+app.listen(process.env.PORT, ()=>{
   console.log("API rodando!")
 })
