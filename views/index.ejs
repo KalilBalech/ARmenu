@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet" />
+  <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  <title>Cardápio Mariazinha</title>
+</head>
+
+<body>
+  <model-viewer src="./assets/models/pobreMaria.glb" shadow-intensity="1"camera-controls auto-rotate 
+  touch-action="pan-y" alt="A 3D model carousel" min-camera-orbit="auto 30deg auto" max-camera-orbit="auto 80deg auto">
+
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+
+      <ul class="menu__box">
+        <li>
+          <h2 class="menu__title">Hamburguer</h2>
+        </li>
+        <li><a class="menu__item" onclick="reachSlide(1)">
+            <div class="item__title">Pobre Maria</div>
+            <div class="item__price">R$20</div>
+          </a>
+        </li>
+        <li><a class="menu__item" onclick="reachSlide(2)">
+            <div class="item__title">Tipo Mequi</div>
+            <div class="item__price">R$25</div>
+          </a>
+        </li>
+        <li><a class="menu__item" onclick="reachSlide(3)">
+            <div class="item__title">Mariazzinha Chorona</div>
+            <div class="item__price">R$27</div>
+          </a>
+        </li>
+        <li><a class="menu__item" onclick="reachSlide(4)">
+            <div class="item__title">Mariazzinha Bagaceira</div>
+            <div class="item__price">R$30</div>
+          </a>
+        </li>
+        <li><a class="menu__item" onclick="reachSlide(5)">
+            <div class="item__title">Mariazzinha Atrevida</div>
+            <div class="item__price">R$30</div>
+          </a>
+        </li>
+        <li>
+          <img class="background-image" src="./assets/images/logo-Mariazinha.png">
+        </li>
+      </ul>
+      
+    </div>
+
+    <button class="order-button" onclick="getOrderDetails()">Pedir este lanche</button>
+
+    <%- include ('./partials/burguerSelection.ejs') %>
+
+    <!-- <button slot="ar-button" id="ar-button">
+      View in your space
+    </button> -->
+
+    <!-- <div id="ar-prompt">
+      <img src="./assets/Images/ar_hand_prompt.png">
+    </div> -->
+
+    <!-- <button id="ar-failure">
+      AR is not tracking!
+    </button> -->
+
+    <div class="slideshow-container">
+      <div class="mySlides">
+        <div class="titulo">Pobre Maria</div>
+        <div class="preco">R$20</div>
+        <div class="descricao">Pão, maionese, 2 carnes, queijo, catchup e molho especial</div>
+      </div>
+      <div class="mySlides">
+        <div class="titulo">Tipo Mequi</div>
+        <div class="preco">R$25</div>
+        <div class="descricao">Pão, molho secreto, alface, tomate, 2 carnes, queijo chedar, catchup, picles e molho
+          quase secreto</div>
+      </div>
+      <div class="mySlides">
+        <div class="titulo">Mariazzinha Chorona</div>
+        <div class="preco">R$27</div>
+        <div class="descricao">Pão, maionese especial, 2 carnes, queijo, bacon, catchup e molho especial</div>
+      </div>
+      <div class="mySlides">
+        <div class="titulo">Mariazzinha Bagaceira</div>
+        <div class="preco">R$30</div>
+        <div class="descricao">Pão, maionese, alface, tomate, 2 carnes, queijo chedar, queijo mussarela, catupiry,
+          bacon, ovo, catchup e molho</div>
+      </div>
+      <div class="mySlides">
+
+        <div class="titulo">Mariazzinha Atrevida</div>
+        <div class="preco">R$30</div>
+        <div class="descricao">Pão, maionese de ervas finas, 240g de carne, chedar, gorgonzola, catupiry, mussarela e
+          chimichurri</div>
+      </div>
+    </div>
+
+    <!-- Next and previous buttons -->
+    <button class="prev" onClick="previousSlide()"></button>
+    <button class="next" onClick="nextSlide()"></button>
+    
+    <div class="counter">1/5</div>
+
+    <%- include('partials/orderDetails.ejs') %>
+    
+  </model-viewer>
+</body>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="https://unpkg.com/axios@1.0.0/dist/axios.min.js"></script>
+<script src="/js/script.js"></script>
+
+</html>

@@ -1,0 +1,55 @@
+<div id="orderDetails">
+  <button onclick="removeOrderDetails()">X</button>
+  <!--method get no forms revela os inputs como query params na url (ruim) melhor usar o post, em que os dados vai dentro da requisicao-->
+  <form method="post" action='/order'>
+    <div class="burguerInput">
+      <input type="radio" id="PobreMaria" name="burguer" value="POBRE MARIA">
+      <label class="burguerLabel" for="PobreMaria">Pobre Maria</label><br>
+      <input type="radio" id="TipoMequi" name="burguer" value="TIPO MEQUI">
+      <label class="burguerLabel" for="TipoMequi">Tipo Mequi</label><br>
+      <input type="radio" id="Chorona" name="burguer" value="CHORONA">
+      <label class="burguerLabel" for="Chorona">Chorona</label><br>
+      <input type="radio" id="Bagaceira" name="burguer" value="BAGACEIRA">
+      <label class="burguerLabel" for="Bagaceira">Bagaceira</label><br>
+      <input type="radio" id="Atrevida" name="burguer" value="ATREVIDA">
+      <label class="burguerLabel" for="Atrevida">Atrevida</label><br>
+    </div>
+    <p>Você quer o seu lanche com batatas?</p>
+    <input type="radio" id="ComBatatas" name="batatas" value="COM" required>
+    <label for="Combatatas">Com batatas</label><br>
+    <input type="radio" id="SemBatatas" name="batatas" value="SEM">
+    <label for="Sembatatas">Sem batatas</label><br>
+    <p>Bebida?</p>
+    <input type="radio" id="coca" name="bebida" value="COCA-COLA" required>
+    <label for="coca">Coca-cola</label><br>
+    <input type="radio" id="guarana" name="bebida" value="GUARANÁ">
+    <label for="guarana">Guaraná</label><br>
+    <input type="radio" id="fanta" name="bebida" value="FANTA">
+    <label for="fanta">Fanta laranja</label><br>
+    <input type="radio" id="schweppes" name="bebida" value="SCHWEPPES">
+    <label for="schweppes">Schweppes</label><br>
+    <input type="radio" id="nenhuma" name="bebida" value="NENHUMA">
+    <label for="nenhuma">Nenhuma</label><br>
+    <p>Qual é o seu bloco?</p>
+    <input type="radio" id="a" name="bloco" value="A" required>
+    <label class="horizontalRadioLabel" for="a">A</label>
+    <input type="radio" id="b" name="bloco" value="B">
+    <label class="horizontalRadioLabel" for="b">B</label>
+    <input type="radio" id="c" name="bloco" value="C">
+    <label class="horizontalRadioLabel" for="c">C</label>
+    <input type="radio" id="d" name="bloco" value="D">
+    <label class="horizontalRadioLabel" for="d">D</label>
+    <input type="radio" id="e" name="bloco" value="E">
+    <label class="horizontalRadioLabel" for="e">E</label>
+    <p>Qual é o seu apartamento?</p>
+    <input type="number" name="apartamento" id="apartamento" required>
+    <p>Forma de Pagamento: </p>
+    <input type="radio" id="dinheiro" name="pagamento" value="DINHEIRO" required>
+    <label class="horizontalRadioLabel" for="dinheiro">Dinheiro</label>
+    <input type="radio" id="Cartao" name="pagamento" value="CARTAO">
+    <label class="horizontalRadioLabel" for="Cartao">Cartão</label>
+    <input type="radio" id="pix" name="pagamento" value="PIX">
+    <label class="horizontalRadioLabel" for="pix">Pix</label>
+    <button type="submit">Fazer pedido</button>
+  </form>
+</div>

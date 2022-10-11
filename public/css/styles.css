@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+:not(:defined) > * {
+  display: none;
+}
+
+* {
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overscroll-behavior-y: contain;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* -------------------         HAMBURGUER MENU     ---------------------------*/
+.hamburger-menu{
+  z-index: 2;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  left: 0 !important;
+}
+.menu__btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 3;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition-duration: .25s;
+}
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: #ECEFF1;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  transition-duration: .25s;
+  z-index: 2;
+}
+.menu__title {
+  color: red;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  transition-duration: .25s;
+  position: relative;
+  padding-bottom: 30px;
+}
+.item__title {
+  position: absolute;
+}
+.item__price {
+  position: absolute;
+  right: 10px;
+}
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
+/* ----------------------------------------------*/ 
+
+/* #ar-button {
+  background-image: url(../../assets/ic_view_in_ar_new_googblue_48dp.png);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 12px 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  bottom: 132px;
+  padding: 0px 16px 0px 40px;
+  font-family: Roboto Regular, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  color:#4285f4;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 18px;
+  border: 1px solid #DADCE0;
+}
+
+#ar-button:active {
+  background-color: #E8EAED;
+}
+
+#ar-button:focus {
+  outline: none;
+}
+
+#ar-button:focus-visible {
+  outline: 1px solid #4285f4;
+} */
+
+@keyframes circle {
+  from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@keyframes elongate {
+  from { transform: translateX(100px); }
+  to   { transform: translateX(-100px); }
+}
+
+model-viewer > #ar-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 175px;
+  animation: elongate 2s infinite ease-in-out alternate;
+  display: none;
+}
+
+model-viewer[ar-status="session-started"] > #ar-prompt {
+  display: block;
+}
+
+model-viewer > #ar-prompt > img {
+  animation: circle 4s linear infinite;
+}
+
+model-viewer > #ar-failure {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 175px;
+  display: none;
+}
+
+model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+  display: block;
+}
+
+.order-button {
+  background-color: white;
+  color: red;
+  padding: 10px;
+  font-size: 16px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+}
+
+.foodForm {
+  background-color: white;
+  color: black;
+  width: 30vw;
+  padding: 5px;
+  position: absolute;
+  right: calc(50% - 15vw);
+  top: 10vh;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+}
+
+.foodForm form select {
+  border: none;
+  font-size: 12px;
+}
+
+.foodForm form select option {
+  font-size: 12px;
+}
+
+#burguerSelection {
+  display: none;
+}
+
+.slideshow-container {
+  height: 16vh;
+  position: fixed;
+  bottom: 6vh;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+}
+
+.mySlides {
+  position: relative;
+  margin-right: 5vw;
+  width: 80vw;
+  height: 16vh;
+  background-color: white;
+  border-radius: 20px;
+  /* border: 1px grey solid; */
+  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+}
+
+.mySlides:first-of-type {
+  margin-left: 10vw;
+}
+
+.titulo{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: red;
+  font-size: 16px;
+}
+
+.preco {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: rgb(222, 222, 62);
+  font-size: 16px;
+
+}
+
+.descricao {
+  position: absolute;
+  left: 20px;
+  top: 7vh;
+  font-size: 12px;
+}
+
+.prev, .next {
+  width: 5vw;
+  height: 16vh;
+  position: fixed;
+  bottom: 6vh;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+}
+
+.next {
+  right: 0;
+}
+
+.counter {
+  position: fixed;
+  bottom: 1vh;
+  left: 50%;
+  font-size: 20px;
+
+}
+
+.background-image {
+  width: 300px;
+  height: auto;
+}
+
+li:last-child {
+  margin-top: 20px;
+}
+
+#orderDetails {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  width: 80vw;
+  height: 80vh;
+  left: 10vw;
+  bottom: 6vh;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: #eee;
+  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+}
+
+.burguerInput {
+  display: none;
+}
+
+#orderDetails button {
+  font-size: 20px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#orderDetails form p {
+  margin-top: 3vh;
+  margin-bottom: 1vh;
+}
+
+#orderDetails form input {
+  accent-color: red;
+}
+
+#apartamento {
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.horizontalRadioLabel {
+  margin-right: 2vw;
+}
+
+#orderDetails form button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  display: block;
+  margin: auto;
+  margin-bottom: 10vh;
+  margin-top: 3vh;
+  background-color: white;
+  color: red;
+  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+}
