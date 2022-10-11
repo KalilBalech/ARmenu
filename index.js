@@ -51,10 +51,11 @@ app.post('/order', (req, res) => {
   childPython.on('close', (code) => {
     console.log(`child process exit with code ${code}`)
   })
-  res.render('index')
+  // em rotas get, costuma-se usar app.render(), em rotas post app.redirect()
+  res.redirect('/')
 })
 
-app.listen(process.env.PORT || 6969, function(erro){
+app.listen(6969, function(erro){
   if(erro){
     console.log(`Ocorreu um erro: ${erro}`)
   }
