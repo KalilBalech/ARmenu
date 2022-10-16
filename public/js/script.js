@@ -7,6 +7,7 @@
 // não permir a existencia de um scroll minimo na pagina
 window.addEventListener('load', () => {
   document.querySelector('body').style.height = window.innerHeight + 'px'
+  document.getElementById('orderDetails').style.height = window.innerHeight * 0.85 + 'px'
 })
 
 const indexToObject = ['pobreMaria', 'tipoMequi', 'tipoMequidenovo', 'bagaceira', 'estojo'] // deve ser uma var de ambiente
@@ -151,7 +152,7 @@ function makeOrder(){
 
   mensagem = 'Salve Mariazinha, sua gostosa! Eu quero um ' + burguer + ', ' + batatas +
   ' e a minha bebida é ' + bebida + '. Mas manda rápido que eu tô com fome. Moro no Bloco ' + bloco + ', apartamento ' 
-  + apartamento +'. Vou pagar no ' + pagamento +'. Meu nome é ' + nome + ', mas pra você é bebê ;)' +' Beijos, te amo!'
+  + apartamento +'. Vou pagar no ' + pagamento +'. Meu nome é ' + nome + ', mas pra você é xuxu ;)' +' Beijos, te amo!'
 
   console.log(burguer + ' ' + batatas + ' ' + bebida + ' ' + nome + ' ' + bloco + ' ' + apartamento + ' ' + pagamento)
 
