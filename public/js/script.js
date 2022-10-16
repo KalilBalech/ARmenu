@@ -58,6 +58,18 @@ function reachSlide(targetSlide) {
   console.log('O novo slide é o ' + currentSlide)
   exchangeModel(currentSlide)
   document.querySelector('.counter').innerHTML = `${currentSlide}/5`
+  if(currentSlide === 1){
+    document.querySelector('.prev').style.display = 'none'
+    document.querySelector('.next').style.display = 'block'
+  }
+  else if(currentSlide === slideAmount){
+    document.querySelector('.prev').style.display = 'block'
+    document.querySelector('.next').style.display = 'none'
+  }
+  else {
+    document.querySelector('.prev').style.display = 'block'
+    document.querySelector('.next').style.display = 'block'
+  }
 }
 
 function exchangeModel(index) {
