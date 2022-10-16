@@ -1,7 +1,7 @@
 <div id="orderDetails">
   <button onclick="removeOrderDetails()">X</button>
   <!--method get no forms revela os inputs como query params na url (ruim) melhor usar o post, em que os dados vai dentro da requisicao-->
-  <form method="post" action='/order'>
+  <form>
     <div class="burguerInput">
       <input type="radio" id="PobreMaria" name="burguer" value="POBRE MARIA">
       <label class="burguerLabel" for="PobreMaria">Pobre Maria</label><br>
@@ -14,22 +14,28 @@
       <input type="radio" id="Atrevida" name="burguer" value="ATREVIDA">
       <label class="burguerLabel" for="Atrevida">Atrevida</label><br>
     </div>
-    <p>Você quer o seu lanche com batatas?</p>
-    <input type="radio" id="ComBatatas" name="batatas" value="COM" required>
-    <label for="Combatatas">Com batatas</label><br>
-    <input type="radio" id="SemBatatas" name="batatas" value="SEM">
-    <label for="Sembatatas">Sem batatas</label><br>
+    <p>Batatas?</p>
+    <input type="radio" id="ComBatataPequena" name="batatas" value="COM BATATA PEQUENA" required>
+    <label for="ComBatataPequena">Batata pequena<span>8</span></label><br>
+    <input type="radio" id="ComBatataMedia" name="batatas" value="COM BATATA MÉDIA">
+    <label for="ComBatataMedia">Batata média<span>13</span></label><br>
+    <input type="radio" id="ComBatataGrande" name="batatas" value="COM BATATA GRANDE">
+    <label for="ComBatataGrande">Batata grande<span>16</span></label><br>
+    <input type="radio" id="SemBatata" name="batatas" value="SEM BATATA">
+    <label for="SemBatata">Sem batata</label><br>
     <p>Bebida?</p>
     <input type="radio" id="coca" name="bebida" value="COCA-COLA" required>
-    <label for="coca">Coca-cola</label><br>
+    <label for="coca">Coca-cola<span>6</span></label><br>
     <input type="radio" id="guarana" name="bebida" value="GUARANÁ">
-    <label for="guarana">Guaraná</label><br>
+    <label for="guarana">Guaraná<span>5</span></label><br>
     <input type="radio" id="fanta" name="bebida" value="FANTA">
-    <label for="fanta">Fanta laranja</label><br>
+    <label for="fanta">Fanta laranja<span>5</span></label><br>
     <input type="radio" id="schweppes" name="bebida" value="SCHWEPPES">
-    <label for="schweppes">Schweppes</label><br>
+    <label for="schweppes">Schweppes<span>5</span></label><br>
     <input type="radio" id="nenhuma" name="bebida" value="NENHUMA">
     <label for="nenhuma">Nenhuma</label><br>
+    <p>Qual é o seu nome?</p>
+    <input type="text" name="nome" class="inputText" autocomplete="off" id="nameInput" required>
     <p>Qual é o seu bloco?</p>
     <input type="radio" id="a" name="bloco" value="A" required>
     <label class="horizontalRadioLabel" for="a">A</label>
@@ -42,7 +48,7 @@
     <input type="radio" id="e" name="bloco" value="E">
     <label class="horizontalRadioLabel" for="e">E</label>
     <p>Qual é o seu apartamento?</p>
-    <input type="number" name="apartamento" id="apartamento" required>
+    <input type="number" name="apartamento" class="inputText" id="apartamento" required>
     <p>Forma de Pagamento: </p>
     <input type="radio" id="dinheiro" name="pagamento" value="DINHEIRO" required>
     <label class="horizontalRadioLabel" for="dinheiro">Dinheiro</label>
@@ -50,6 +56,9 @@
     <label class="horizontalRadioLabel" for="Cartao">Cartão</label>
     <input type="radio" id="pix" name="pagamento" value="PIX">
     <label class="horizontalRadioLabel" for="pix">Pix</label>
-    <button type="submit">Fazer pedido</button>
+    <p id="invalidFields"></p>
+    <div class="button makeOrderButton">
+      <a onclick="makeOrder()">Fazer Pedido</a>
+    </div>
   </form>
 </div>
