@@ -10,10 +10,13 @@ window.addEventListener('load', () => {
   document.getElementById('orderDetails').style.height = window.innerHeight * 0.85 + 'px'
 })
 
-const indexToObject = ['pobreMaria', 'tipoMequi', 'tipoMequidenovo', 'bagaceira', 'estojo'] // deve ser uma var de ambiente
+const indexToBurguer = ['pobreMaria', 'tipoMequi', 'tipoMequidenovo', 'bagaceira', 'estojo'] // deve ser uma var de ambiente
+const burguerToPrice = {'POBRE MARIA': 20, 'TIPO MEQUI': 25, 'CHORONA': 27, 'BAGACEIRA': 30, 'ATREVIDA': 30}
+const batataToPrice = {'COM BATATA PEQUENA': 8, 'COM BATATA MÉDIA': 13,'COM BATATA GRANDE': 16, 'SEM BATATA': 0}
+const bebidaToPrice = {'COCA-COLA': 6, 'GUARANÁ': 5, 'FANTA': 5, 'SCHWEPPES': 5, 'NENHUMA': 0}
 const slideAmount = document.querySelectorAll('.mySlides').length
-document.querySelectorAll('.slideshow-container')[0].style.width = (slideAmount*85 + 10)+'vw'
 const modelViewer = document.querySelector("model-viewer")
+document.querySelectorAll('.slideshow-container')[0].style.width = (slideAmount*85 + 10)+'vw'
 
 let currentSlide = 1;
 let translatedPosition = 0
@@ -74,7 +77,7 @@ function reachSlide(targetSlide) {
 }
 
 function exchangeModel(index) {
-  modelViewer.src = '../assets/models/' + indexToObject[index-1] + '.glb';
+  modelViewer.src = '../assets/models/' + indexToBurguer[index-1] + '.glb';
 }
 
 function getOrderDetails() {
@@ -84,20 +87,25 @@ function getOrderDetails() {
 
   document.getElementById('menu__toggle').setAttribute('disabled', 'disabled')
   document.getElementById("orderDetails").style.display = 'block'
+  document.getElementById('orderDetailsBackground').style.display = 'block'
+
 }
 
 function removeOrderDetails() {
   document.getElementById('menu__toggle').disabled = false
   document.getElementById("orderDetails").style.display = 'none'
+  document.getElementById('orderDetailsBackground').style.display = 'none'
 }
 
 function makeOrder(){
-  let i, burguer, batatas, bebida, nome, bloco, apartamento, pagamento, mensagem
+  let i, burguer, batatas, bebida, observacao, nome, bloco, apartamento, pagamento, mensagem, preco
+  preco = 0
 
   let burguerInput = document.getElementsByName('burguer')
   for(i=0; i<burguerInput.length; i++){
     if(burguerInput[i].checked){
       burguer = burguerInput[i].value
+      preco += burguerToPrice[burguerInput[i].value]
       break
     }
   }
@@ -106,6 +114,7 @@ function makeOrder(){
   for(i=0; i<batatasInput.length; i++){
     if(batatasInput[i].checked){
       batatas = batatasInput[i].value
+      preco += batataToPrice[batatasInput[i].value]
       break
     }
   }
@@ -114,19 +123,28 @@ function makeOrder(){
   for(i=0; i<bebidasInput.length; i++){
     if(bebidasInput[i].checked){
       bebida = bebidasInput[i].value
+      preco += bebidaToPrice[bebidasInput[i].value]
       break
     }
   }
 
+  observacao = document.getElementById('observação').value
+
+  if(observacao === ''){
+    observacao = ' Beijinhos ;)'
+  }
+  else{
+    observacao = observacao.toUpperCase()
+    observacao = ' AHH NÃO SE ESQUEÇA: ' + observacao + '. Beijinhos ;)'
+  }
+
   nome = document.getElementById('nameInput').value
-  // console.log('typeof nome: '+ typeof nome)
   if(nome === ''){
     nome = undefined
   }
   else{
     nome = nome.toUpperCase()
   }
-  // console.log('typeof nome: '+ typeof nome)
 
   let blocoInput = document.getElementsByName('bloco')
   for(i=0; i<blocoInput.length; i++){
@@ -150,17 +168,21 @@ function makeOrder(){
     }
   }
 
-  mensagem = 'Salve Mariazinha, sua gostosa! Eu quero um ' + burguer + ', ' + batatas +
+  mensagem = 'Oi Mariazinha, sua gostosa! Eu quero um ' + burguer + ', ' + batatas +
   ' e a minha bebida é ' + bebida + '. Mas manda rápido que eu tô com fome. Moro no Bloco ' + bloco + ', apartamento ' 
-  + apartamento +'. Vou pagar no ' + pagamento +'. Meu nome é ' + nome + ', mas pra você é xuxu ;)' +' Beijos, te amo!'
+  + apartamento +'. Vou pagar no ' + pagamento +'. Meu nome é ' + nome + ', mas pra você é querubin' + observacao
 
   console.log(burguer + ' ' + batatas + ' ' + bebida + ' ' + nome + ' ' + bloco + ' ' + apartamento + ' ' + pagamento)
 
   if(burguer && batatas && bebida && bloco && apartamento && pagamento){
     document.getElementById('invalidFields').innerText = ''
-    window.open(`https://wa.me/55011931484222?text=${mensagem}`, '_blank')
+    window.open(`https://wa.me/55011962650823?text=${mensagem}`, '_blank')
   }
   else{
     document.getElementById('invalidFields').innerText = 'Preencha todos os campos, bebê!'
   }
+}
+
+function removeMenuBox(){
+  document.getElementById('menu__toggle').checked = false
 }

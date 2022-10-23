@@ -32,20 +32,25 @@ model-viewer {
 #menu__toggle {
   opacity: 0;
 }
-#menu__toggle:checked + .menu__btn > span {
-  transform: rotate(45deg);
+#menu__toggle:checked ~ .menu__btn {
+  display: none;
+  /* transform: rotate(45deg); */
 }
-#menu__toggle:checked + .menu__btn > span::before {
+/* #menu__toggle:checked + .menu__btn > span::before {
   top: 0;
   transform: rotate(0deg);
 }
 #menu__toggle:checked + .menu__btn > span::after {
   top: 0;
   transform: rotate(90deg);
-}
+} */
 #menu__toggle:checked ~ .menu__box {
   left: 0 !important;
 }
+#menu__toggle:checked ~ .menu__box__side {
+  display: block;
+}
+
 .menu__btn {
   position: fixed;
   top: 20px;
@@ -88,6 +93,23 @@ model-viewer {
   transition-duration: .25s;
   z-index: 2;
   overflow: scroll;
+}
+
+.menu__box__side {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: transparent;
+  transition-duration: .25s;
+  z-index: 2;
+  overflow: scroll;
+
 }
 .menu__title {
   color: red;
@@ -193,9 +215,9 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
   color: red;
   padding: 10px;
   font-size: 16px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
-  box-shadow: 2px 2px 2px rgba(255, 0, 0, .6);
+  box-shadow: 3px 3px 3px rgba(255, 0, 0, .99);
 }
 
 .order-button {
@@ -279,6 +301,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
 }
 
 .prev, .next {
+  font-size: 24px;
   width: 4vh;
   height: 4vh;
   position: fixed;
@@ -286,7 +309,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
   border-radius: 50%;
   box-shadow: 0px 4px 4px rgb(206, 206, 206);
   color: red;
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
   background-color: white;
   border: none;
@@ -321,7 +344,7 @@ li:last-child {
 #orderDetails {
   display: none;
   position: fixed;
-  z-index: 5;
+  z-index: 6;
   width: 80vw;
   height: 85vh;
   left: 10vw;
@@ -332,6 +355,15 @@ li:last-child {
   background-color: #eee;
   box-shadow: 2px 4px 4px rgb(206, 206, 206);
   overflow: scroll;
+}
+
+#orderDetailsBackground {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  z-index: 5;
 }
 
 .burguerInput {
@@ -369,7 +401,8 @@ li:last-child {
 .inputText {
   border: none;
   border-radius: 5px;
-  padding: 2px;
+  padding: 4px;
+  width: 100%;
 }
 
 .horizontalRadioLabel {
@@ -390,5 +423,4 @@ li:last-child {
 
 #invalidFields {
   color: red;
-  /* text-fill-color: rgba(100,0,0, 1); */
 }

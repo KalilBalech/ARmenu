@@ -1,5 +1,5 @@
 <div id="orderDetails">
-  <button onclick="removeOrderDetails()">X</button>
+  <!-- <button onclick="removeOrderDetails()">X</button> -->
   <!--method get no forms revela os inputs como query params na url (ruim) melhor usar o post, em que os dados vai dentro da requisicao-->
   <form>
     <div class="burguerInput">
@@ -34,6 +34,9 @@
     <label for="schweppes">Schweppes<span>5</span></label><br>
     <input type="radio" id="nenhuma" name="bebida" value="NENHUMA">
     <label for="nenhuma">Nenhuma</label><br>
+    <p>Alguma observação?</p>
+    <textarea name="observação" id="observação" class="inputText" cols="30" rows="5" placeholder="Ex: Tirar a cebola, ponto da carne etc" maxlength="150"></textarea>
+    <!-- <input type="text" name="observação" id="observação" class="inputText" rows="3" placeholder="Ex: Tirar a cebola, ponto da carne etc"> -->
     <p>Qual é o seu nome?</p>
     <input type="text" name="nome" class="inputText" autocomplete="off" id="nameInput" required>
     <p>Qual é o seu bloco?</p>
