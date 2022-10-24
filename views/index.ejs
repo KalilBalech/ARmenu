@@ -26,31 +26,33 @@
         </li>
         <li><a class="menu__item" onclick="reachSlide(1)">
             <div class="item__title">Pobre Maria</div>
-            <div class="item__price">R$20</div>
+            <div class="item__price">$20</div>
           </a>
         </li>
         <li><a class="menu__item" onclick="reachSlide(2)">
             <div class="item__title">Tipo Mequi</div>
-            <div class="item__price">R$25</div>
+            <div class="item__price">$25</div>
           </a>
         </li>
         <li><a class="menu__item" onclick="reachSlide(3)">
             <div class="item__title">Mariazzinha Chorona</div>
-            <div class="item__price">R$27</div>
+            <div class="item__price">$27</div>
           </a>
         </li>
         <li><a class="menu__item" onclick="reachSlide(4)">
             <div class="item__title">Mariazzinha Bagaceira</div>
-            <div class="item__price">R$30</div>
+            <div class="item__price">$30</div>
           </a>
         </li>
         <li><a class="menu__item" onclick="reachSlide(5)">
             <div class="item__title">Mariazzinha Atrevida</div>
-            <div class="item__price">R$30</div>
+            <div class="item__price">$30</div>
           </a>
         </li>
         <li>
-          <img class="background-image" src="./assets/images/logo-Mariazinha.png">
+          <a href="/login">
+            <img class="background-image" src="./assets/images/logo-Mariazinha.png">
+          </a>
         </li>
       </ul>
       <ul class="menu__box__side" onclick="removeMenuBox()">
@@ -59,7 +61,7 @@
       
     </div>
 
-    <button class="order-button button" onclick="getOrderDetails()">Pedir este lanche</button>
+    <button class="order-button button" onclick="getOrderDetails()">Pedir lanche</button>
 
     <%- include ('./partials/burguerSelection.ejs') %>
 
@@ -78,29 +80,29 @@
     <div class="slideshow-container">
       <div class="mySlides">
         <div class="titulo">Pobre Maria</div>
-        <div class="preco">R$20</div>
+        <div class="preco">$20</div>
         <div class="descricao">Pão, maionese, 2 carnes, queijo, catchup e molho especial</div>
       </div>
       <div class="mySlides">
         <div class="titulo">Tipo Mequi</div>
-        <div class="preco">R$25</div>
+        <div class="preco">$25</div>
         <div class="descricao">Pão, molho secreto, alface, tomate, 2 carnes, queijo chedar, catchup, picles e molho
           quase secreto</div>
       </div>
       <div class="mySlides">
         <div class="titulo">Mariazzinha Chorona</div>
-        <div class="preco">R$27</div>
+        <div class="preco">$27</div>
         <div class="descricao">Pão, maionese especial, 2 carnes, queijo, bacon, catchup e molho especial</div>
       </div>
       <div class="mySlides">
         <div class="titulo">Mariazzinha Bagaceira</div>
-        <div class="preco">R$30</div>
+        <div class="preco">$30</div>
         <div class="descricao">Pão, maionese, alface, tomate, 2 carnes, queijo chedar, queijo mussarela, catupiry,
           bacon, ovo, catchup e molho</div>
       </div>
       <div class="mySlides">
         <div class="titulo">Mariazzinha Atrevida</div>
-        <div class="preco">R$30</div>
+        <div class="preco">$30</div>
         <div class="descricao">Pão, maionese de ervas finas, 240g de carne, chedar, gorgonzola, catupiry, mussarela e
           chimichurri</div>
       </div>

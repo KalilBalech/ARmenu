@@ -170,7 +170,7 @@ function makeOrder(){
 
   mensagem = 'Oi Mariazinha, sua gostosa! Eu quero um ' + burguer + ', ' + batatas +
   ' e a minha bebida é ' + bebida + '. Mas manda rápido que eu tô com fome. Moro no Bloco ' + bloco + ', apartamento ' 
-  + apartamento +'. Vou pagar no ' + pagamento +'. Meu nome é ' + nome + ', mas pra você é querubin' + observacao
+  + apartamento +'. Vou pagar no ' + pagamento +'. Meu nome é ' + nome + observacao
 
   console.log(burguer + ' ' + batatas + ' ' + bebida + ' ' + nome + ' ' + bloco + ' ' + apartamento + ' ' + pagamento)
 

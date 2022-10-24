@@ -1,7 +1,7 @@
 <div id="orderDetails">
   <!-- <button onclick="removeOrderDetails()">X</button> -->
   <!--method get no forms revela os inputs como query params na url (ruim) melhor usar o post, em que os dados vai dentro da requisicao-->
-  <form>
+  <form method="post" action="/order">
     <div class="burguerInput">
       <input type="radio" id="PobreMaria" name="burguer" value="POBRE MARIA">
       <label class="burguerLabel" for="PobreMaria">Pobre Maria</label><br>
@@ -60,8 +60,6 @@
     <input type="radio" id="pix" name="pagamento" value="PIX">
     <label class="horizontalRadioLabel" for="pix">Pix</label>
     <p id="invalidFields"></p>
-    <div class="button makeOrderButton">
-      <a onclick="makeOrder()">Fazer Pedido</a>
-    </div>
+    <button onclick="makeOrder()" type="submit" class="button makeOrderButton" id="submitButtonOrderDetails">Confirmar</a>
   </form>
 </div>

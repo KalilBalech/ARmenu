@@ -20,7 +20,7 @@ body {
 model-viewer {
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: rgb(250, 250, 250);
   position: relative;
 }
 
@@ -88,7 +88,7 @@ model-viewer {
   margin: 0;
   padding: 80px 0;
   list-style: none;
-  background-color: #ECEFF1;
+  background-color:rgb(250, 250, 250);
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
   z-index: 2;
@@ -211,13 +211,15 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
 }
 
 .button{
-  background-color: white;
-  color: red;
-  padding: 10px;
+  background-color: red;
+  /* background-image: linear-gradient(to right, rgb(255, 200, 0) , red); */
+  color: white;
+  font-weight: bold;
+  padding: 10px 40px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 50px;
   border: none;
-  box-shadow: 3px 3px 3px rgba(255, 0, 0, .99);
+  box-shadow: 2px 2px 3px rgba(164, 78, 78, 0.99);
 }
 
 .order-button {
@@ -269,7 +271,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
   position: relative;
   margin-right: 20vw;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+  box-shadow: 0px 1px 2px rgb(200, 200, 200);
 }
 
 .mySlides:first-of-type {
@@ -282,13 +284,14 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
   top: 20px;
   color: red;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .preco {
   position: absolute;
   right: 20px;
   top: 20px;
-  color: rgb(222, 222, 62);
+  color: rgb(237, 237, 68);
   font-size: 16px;
 
 }
@@ -298,6 +301,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
   left: 20px;
   top: 7vh;
   font-size: 12px;
+
 }
 
 .prev, .next {
@@ -307,7 +311,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
   position: fixed;
   bottom: 12vh;
   border-radius: 50%;
-  box-shadow: 0px 4px 4px rgb(206, 206, 206);
+  box-shadow: 0px 1px 2px rgb(200, 200, 200);
   color: red;
   /* font-weight: bold; */
   cursor: pointer;
@@ -370,14 +374,14 @@ li:last-child {
   display: none;
 }
 
-#orderDetails button {
+/* #orderDetails button {
   background-color: transparent;
-  font-size: 20px;
-  background-color: #eee;
+  font-size: 16px;
+  background-color: red;
   border: none;
   border-radius: 5px;
   padding: 3px;
-}
+} */
 
 #orderDetails form p {
   margin-top: 3vh;
@@ -400,9 +404,16 @@ li:last-child {
 
 .inputText {
   border: none;
-  border-radius: 5px;
-  padding: 4px;
+  border-radius: 20px;
+  padding: 5px 10px;
   width: 100%;
+  font-size: 16px;
+}
+
+.inputText:focus{
+  outline: none !important;
+  border: 1px solid rgb(255, 103, 103);
+  box-shadow: 0 0 10px #ce7171;
 }
 
 .horizontalRadioLabel {
@@ -416,10 +427,10 @@ li:last-child {
   margin-top: 3vh;
 }
 
-.makeOrderButton{
+/* .makeOrderButton{
   width: fit-content;
   color: red
-}
+} */
 
 #invalidFields {
   color: red;
